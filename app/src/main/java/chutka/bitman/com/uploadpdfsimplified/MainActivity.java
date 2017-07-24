@@ -150,10 +150,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Creating a multi part request
                 new MultipartUploadRequest(this, uploadId, UPLOAD_URL)
                         .addFileToUpload(path, "pdf") //Adding file
-                        .addParameter("file", name)//Adding text parameter to the request
+                        .addParameter("name", name)//Adding text parameter to the request
                         .setNotificationConfig(new UploadNotificationConfig())
                         .setMaxRetries(2)
                         .startUpload(); //Starting the upload
+                editText.setText("");
 
             } catch (Exception exc) {
                 Toast.makeText(this, exc.getMessage(), Toast.LENGTH_SHORT).show();
